@@ -1,1 +1,19 @@
-<p>auth works!</p>
+<mat-card>
+  <mat-card-content>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <h2>How should we call you?</h2>
+      <mat-form-field class="full-width-input">
+        <input matInput placeholder="Your name" formControlName="name" required>
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit" *ngIf="!isLoading" [disabled]="form.invalid">Continue</button>
+      <mat-progress-spinner
+        class="example-margin"
+        color="primary"
+        mode="indeterminate"
+        *ngIf="isLoading"
+      >
+      </mat-progress-spinner>
+    </form>
+  </mat-card-content>
+</mat-card>
+

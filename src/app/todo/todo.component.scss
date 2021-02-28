@@ -3,13 +3,24 @@
 }
 
 .todo-form {
-  max-width: 100%;
+  margin: 0 auto;
+  max-width: 600px;
   width: 100%;
   padding: 25px;
 }
 
+h1 {
+  margin: 0 auto !important;
+  text-align: left !important;
+  width: 100%;
+  max-width: 600px;
+  padding-left: 25px;
+  margin-top: 30px !important;
+}
+
 .full-width {
   width: calc(100% - 50px);
+  margin: 0 auto;
 }
 
 .overlined .mat-list-text {
@@ -18,5 +29,31 @@
 
 mat-list {
   padding: 15px;
+  margin: 0 auto;
+  max-width: 600px !important;
 }
 
+.mat-list-item {
+  width: 100%;
+}
+
+.mat-list-item-content {
+  width: 100%;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
+
+.mat-list-item .mat-icon-button {
+  float: right !important;
+  opacity: 0;
+  transition: opacity linear 0.3s;
+}
+
+.mat-list-item:hover .mat-icon-button {
+  opacity: 1;
+}
+
+button.mobile {
+  opacity: 1 !important;
+}

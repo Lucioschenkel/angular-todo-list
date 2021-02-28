@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { MatBottomSheetRef } from '@angular/material/bottom-sheet';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MatBottomSheetRef, MAT_BOTTOM_SHEET_DATA } from '@angular/material/bottom-sheet';
 
 @Component({
   selector: 'app-todo-filter-options',
@@ -8,7 +8,7 @@ import { MatBottomSheetRef } from '@angular/material/bottom-sheet';
 })
 export class TodoFilterOptionsComponent implements OnInit {
 
-  constructor(private _bottomSheetRef: MatBottomSheetRef) { }
+  constructor(private _bottomSheetRef: MatBottomSheetRef, @Inject(MAT_BOTTOM_SHEET_DATA) public data: { filter: string }) { }
 
   ngOnInit(): void {
   }

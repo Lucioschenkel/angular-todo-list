@@ -8,6 +8,8 @@
   </mat-toolbar-row>
 </mat-toolbar>
 
+<h1 *ngIf="user && user.name">Hello, {{ user?.name }}</h1>
+
 <form #f="ngForm" class="todo-form">
   <mat-form-field class="full-width">
     <mat-label>What needs to be done?</mat-label>
@@ -19,5 +21,9 @@
 <mat-list>
   <mat-list-item *ngFor="let todo of (todos | todoFilter:filter)">
     <mat-checkbox [checked]="todo.done" [id]="todo.id" (change)="onToggletodo(todo)">{{ todo.label }}</mat-checkbox>
+    <button mat-icon-button [ngClass]="{ 'mobile': isMobile }" title="Remove todo" (click)="onRemoveTodo(todo)">
+      <mat-icon>clear</mat-icon>
+    </button>
   </mat-list-item>
+  <mat-list-item *ngIf="todos.length === 0">Nothing yet...</mat-list-item>
 </mat-list>

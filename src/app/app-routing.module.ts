@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {
     path: 'todo',
     loadChildren: () => import('./todo/todo.module').then(m => m.TodoModule),
+    canLoad: [AuthGuard],
   },
   {
     path: 'auth',
