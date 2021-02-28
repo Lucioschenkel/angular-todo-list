@@ -1,0 +1,23 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>My tasks</span>
+    <span class="spacer"></span>
+    <button mat-icon-button class="example-icon" (click)="onChangeFilter()" aria-label="Example icon-button with share icon">
+      <mat-icon>sort</mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<form #f="ngForm" class="todo-form">
+  <mat-form-field class="full-width">
+    <mat-label>What needs to be done?</mat-label>
+    <input matInput name="todo" ngModel required minlength="4" (keypress)="onUserTyped($event, f)" placeholder="Type in a task" value="Sushi">
+  </mat-form-field>
+  <button color="accent" [disabled]="f.invalid" (click)="onAddTodo(f)" mat-raised-button>Add</button>
+</form>
+
+<mat-list>
+  <mat-list-item *ngFor="let todo of (todos | todoFilter:filter)">
+    <mat-checkbox [checked]="todo.done" [id]="todo.id" (change)="onToggletodo(todo)">{{ todo.label }}</mat-checkbox>
+  </mat-list-item>
+</mat-list>

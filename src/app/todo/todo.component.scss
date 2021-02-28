@@ -1,0 +1,22 @@
+.spacer {
+  flex-grow: 1;
+}
+
+.todo-form {
+  max-width: 100%;
+  width: 100%;
+  padding: 25px;
+}
+
+.full-width {
+  width: calc(100% - 50px);
+}
+
+.overlined .mat-list-text {
+  text-decoration: overline;
+}
+
+mat-list {
+  padding: 15px;
+}
+
